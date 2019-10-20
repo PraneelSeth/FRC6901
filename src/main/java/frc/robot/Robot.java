@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.Constants;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -30,9 +31,9 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   
-  private final SpeedControllerGroup rightSide = new SpeedControllerGroup(new Spark(0), new Spark(1), new Spark(2));
-  private final SpeedControllerGroup leftSide = new SpeedControllerGroup(new Spark(7), new Spark(8), new Spark(9));
-  private final Spark Wrist = new Spark(3);
+  private final SpeedControllerGroup rightSide = new SpeedControllerGroup(new Spark(Constants.leftPort1), new Spark(Constants.leftPort2), new Spark(Constants.leftPort3));
+  private final SpeedControllerGroup leftSide = new SpeedControllerGroup(new Spark(Constants.rightPort1), new Spark(Constants.rightPort2), new Spark(Constants.rightPort3));
+  private final Spark Wrist = new Spark(Constants.wristPort);
   private final DifferentialDrive m_robotDrive = new DifferentialDrive(leftSide, rightSide);
   private final XboxController controller = new XboxController(0);
   private final Timer m_timer = new Timer();
