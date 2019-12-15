@@ -1,3 +1,6 @@
+
+
+
 package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Spark;
@@ -9,16 +12,19 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.Constants;
 
-public class Constants {
 
-    public static final int leftPort1 = 0;
-    public static int leftPort2 = 1;
-    public static int leftPort3 = 2;
-    public static int wristPort = 3;
-    public static int rightPort1 = 7;
-    public static int rightPort2 = 8;
-    public static int rightPort3 = 9;
-    public static int kWristPow = 1;
+public class Wrist {
+
+    private final Spark Wrist = new Spark(Constants.wristPort);
+    m_robotDrive.arcadeDrive(controller.getY(Hand.kLeft), controller.getX(Hand.kRight));
+    if (controller.getTriggerAxis(Hand.kLeft) != 0) {
+      Wrist.set(kWristPow);
+    } else if (controller.getTriggerAxis(Hand.kRight) != 0) {
+      Wrist.set(-kWristPow);
+    } else {
+      Wrist.set(0);
+    }
 
 }

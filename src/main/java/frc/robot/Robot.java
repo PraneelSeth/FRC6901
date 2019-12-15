@@ -33,7 +33,6 @@ public class Robot extends TimedRobot {
   
   private final SpeedControllerGroup rightSide = new SpeedControllerGroup(new Spark(Constants.leftPort1), new Spark(Constants.leftPort2), new Spark(Constants.leftPort3));
   private final SpeedControllerGroup leftSide = new SpeedControllerGroup(new Spark(Constants.rightPort1), new Spark(Constants.rightPort2), new Spark(Constants.rightPort3));
-  private final Spark Wrist = new Spark(Constants.wristPort);
   private final DifferentialDrive m_robotDrive = new DifferentialDrive(leftSide, rightSide);
   private final XboxController controller = new XboxController(0);
   private final Timer m_timer = new Timer();
